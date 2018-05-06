@@ -5608,9 +5608,11 @@
 	            xc(target, 'click', function(e) {
 	            	var from = e.target.getAttribute('data-source');
 	            	var to = e.target.innerText;
-	            	console.log('from', from, 'to', to, 'args(event)', Array.from(arguments));
+	            	// console.log('from', from, 'to', to, 'args(event)', Array.from(arguments));
 	            	var body = {"action": "addNote", "version": 5, "params": {"note": {"fields": {"Front": from, "Back": to}, "modelName": "Basic", "deckName": "Default"}}};
-	            	fetch("http://localhost:8765", { method: "POST", body: JSON.stringify(body) }).then(r => r.json()).then(x => console.log("saved!", x))
+	            	fetch("http://localhost:8765", { method: "POST", body: JSON.stringify(body) }).then(r => r.json()).then(data => {
+	            		e.target.style.color = data.error ? 'red' : 'green';
+	            	})
 	            }, !1, this);
 	        }
 
