@@ -28,9 +28,8 @@
       "38": "icons/38.png",
       "48": "icons/48.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfHy1M+jghaHyaVAILzx/c/Dy+RXtcaP9/5pC7EY8JlNEI/G4DIIng9IzlrH8UWStpMWMyGUsdyusn2PkYFrqfVzhc2azVF3PX9D0KHG3FLN3mNoz1YTBHvO5QSXJf292qW0tTYuoGqeTfXtF9odLdg20Xd0YrLmtS4TQkpSYGDwIDAQAB",
    "manifest_version": 2,
-   "name": "AnkiTranslate",
+   "name": "__MSG_8969005060131950570__",
    "options_page": "options.html",
    "permissions": [ "activeTab", "contextMenus", "storage" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
