@@ -154,5 +154,29 @@
    },
    "MSG_TRANSLATION_ERROR": {
       "message": "6131124164729815942"
+   },
+   "MSG_CONNECT_URL_LABEL": {
+      "message": "6131124164729815943"
+   },
+   "6131124164729815943": {
+      "message": "Anki Connect URL"
+   },
+   "MSG_MODEL_NAME_OPTION": {
+      "message": "6131124164729815944"
+   },
+   "6131124164729815944": {
+      "message": "Model name"
+   },
+   "MSG_DECK_NAME_OPTION": {
+      "message": "6131124164729815944"
+   },
+   "6131124164729815944": {
+      "message": "Deck name"
+   },
+   "MSG_SAVE_ANKI_OPTIONS": {
+      "message": "6131124164729815945"
+   },
+   "6131124164729815945": {
+      "message": "Save Anki Options"
    }
 }

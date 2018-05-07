@@ -9,34 +9,32 @@
   <body>
     <div id="content">
        <h1>
-        <img src='https://ssl.gstatic.com/translate/google_translate_logo.png'
-             title="Google Translate" alt="Google Translate"><br>
          <div id="options-title-heading"></div>
       </h1>
 
       <div class="group">      
-        <input type="text" id='ankiConnectUrl' required>
+        <input type="text" id='ankiConnectUrl'>
         <span class="highlight"></span>
         <span class="bar"></span>
-        <label>Anki Connect URL</label>
+        <label id='connect-url-label'></label>
       </div>
 
       <div class="option_row">
-        <div id="model-name-option" class="option_name">Model name</div>
+        <div id="model-name-option" class="option_name"></div>
         <div class="option_picker">
           <select id="ankiModelNameSel" class="jfk-button jfk-button-standard"></select>
         </div>
       </div>
 
       <div class="option_row">
-        <div id="deck-name-option" class="option_name">Deck name</div>
+        <div id="deck-name-option" class="option_name"></div>
         <div class="option_picker">
           <select id="ankiDeckNameSel" class="jfk-button jfk-button-standard"></select>
         </div>
       </div>
 
       <div class="buttons">
-        <div id="saveAnkiBtn" class="jfk-button-action jfk-button jfk-button-disabled">Save Anki Options</div>
+        <div id="saveAnkiBtn" class="jfk-button-action jfk-button jfk-button-disabled"></div>
         <span id="saveAnkiStatus" style="display:none"></span>
       </div>
 
@@ -63,7 +61,7 @@
     </div> <!-- end of content div -->
 
     <div class="footer"><a id="footer-homepage" href="http://translate.google.com/"></a></div>
-    <div class="footer">&copy;2016 Google - <a id="footer-privacy" href="http://www.google.com/privacy.html"></a></div>
+    <div class="footer">&copy;2016 Google - <a id="footer-privacy" href="http://www.google.com/privacy.html"></a>, 2018 razum2um - <a id="footer-privacy" href="https://razum2um.me"></a></div>
 
   </body>
 </html>

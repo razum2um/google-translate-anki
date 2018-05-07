@@ -3651,7 +3651,11 @@
         L(K(document, "resetBtn"), x("MSG_OPTIONS_RESET"));
         L(K(document, "saveStatus"), x("MSG_OPTIONS_SAVED_STATUS"));
         L(K(document, "footer-homepage"), x("MSG_OPTIONS_FOOTER_HOMEPAGE"));
-        L(K(document, "footer-privacy"), x("MSG_OPTIONS_FOOTER_PRIVACY"))
+        L(K(document, "footer-privacy"), x("MSG_OPTIONS_FOOTER_PRIVACY"));
+        L(K(document, "connect-url-label"), x("MSG_CONNECT_URL_LABEL"));
+        L(K(document, "model-name-option"), x("MSG_MODEL_NAME_OPTION"));
+        L(K(document, "deck-name-option"), x("MSG_DECK_NAME_OPTION"));
+        L(K(document, "saveAnkiBtn"), x("MSG_SAVE_ANKI_OPTIONS"));
     };
     document.addEventListener("DOMContentLoaded", function() {
         (new Wf).s()
