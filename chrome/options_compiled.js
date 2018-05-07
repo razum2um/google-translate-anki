@@ -3,27 +3,51 @@
     var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
     var fetchOptions = function(url, action, selectId) {
         var selectEl = document.getElementById(selectId);
-        return fetch(url, { method: "POST", body: JSON.stringify({"action": action}) }).then(r => r.json()).then(data => {
-            for (var i = 0; i < data.length; i++) {
-            var name = data[i];
-            e = document.createElement("option");
-            e.value = name;
-            e.text = name;
-            selectEl.appendChild(e);
-          }
+        return new Promise((resolve, reject) => {
+            chrome.storage.local.get(selectId, (stored) => {
+                var storedVal = stored[selectId];
+                fetch(url, { method: "POST", body: JSON.stringify({"action": action}) }).then(r => r.json()).then(data => {
+                    for (var i = 0; i < data.length; i++) {
+                    var name = data[i];
+                    e = document.createElement("option");
+                    e.value = name;
+                    e.text = name;
+                    if (name === storedVal) e.selected = true;
+                    selectEl.appendChild(e);
+                  }
+                }).then(r => resolve(r)).catch(e => reject(e));
+            });
         });
+    }
+    var saveOption = function(selectId) {
+        var selectEl = document.getElementById(selectId);
+        return chrome.storage.local.set({[selectId]: selectEl.value})
     }
 	document.addEventListener("DOMContentLoaded", function() {
         var urlEl = document.getElementById('ankiConnectUrl');
+        var saveAnkiBtn = document.getElementById('saveAnkiBtn');
     
         chrome.storage.local.get('ankiConnectUrl', ({ankiConnectUrl}) => {
             var url = ankiConnectUrl || 'http://localhost:8765';
             urlEl.classList.add('focused');
             urlEl.value = url;
             Promise.all([
-                fetchOptions(url, 'deckNames', 'deckNameSel'),
-                fetchOptions(url, 'modelNames', 'modelNameSel')
-            ]).catch(error => alert(`Cannot fetch options via AnkiConnect: ${error}`))
+                fetchOptions(url, 'deckNames', 'ankiDeckNameSel'),
+                fetchOptions(url, 'modelNames', 'ankiModelNameSel')
+            ])
+            .then(() => {
+                saveAnkiBtn.classList.remove('jfk-button-disabled');
+                saveAnkiBtn.addEventListener('click', (e) => {
+                    Promise.all([
+                        saveOption('ankiDeckNameSel'),
+                        saveOption('ankiModelNameSel'),
+                        saveOption('ankiConnectUrl')
+                    ])
+                    .then(() => alert(`Options saved!`))
+                    .catch(error => alert(`Cannot save options: ${error}`))
+                });
+            })
+            .catch(error => alert(`Cannot fetch options via AnkiConnect: ${error}`))
         });
 	  });
 
