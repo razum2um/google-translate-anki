@@ -32,7 +32,6 @@
    "name": "__MSG_8969005060131950570__",
    "options_page": "options.html",
    "permissions": [ "activeTab", "contextMenus", "storage" ],
-   "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "2.0.7",
    "web_accessible_resources": [ "popup_css_compiled.css", "options.html" ]
 }
