@@ -1,4 +1,3 @@
-
 /* Copyright 2014 Google */
 (function() {
   var h, aa = aa || {},
@@ -4221,7 +4220,7 @@
         b += '</select></div><div class="gtx-source-audio"><div class="jfk-button-img"></div></div><div class="gtx-body">' + 
                   gg(a.query) + '</div><br><div class="gtx-language">' + 
                   gg(a.hc) + '</div><div class="gtx-target-audio"><div class="jfk-button-img"></div></div><div class="gtx-body gtx-target" data-source="' + gg(a.query) + '">' +
-                    gg(a.Ob) + "</div>";
+                  gg(a.Ob) + "</div>";
         if (a.ub) {
           b += '<table style="width: 95%">';
           c = a.ub;
