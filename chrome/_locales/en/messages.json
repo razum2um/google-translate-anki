@@ -184,5 +184,11 @@
    },
    "6131124164729815947": {
       "message": "Anki Options"
+   },
+   "MSG_OPTIONS_PATCHED_FOOTER_HOMEPAGE": {
+      "message": "6131124164729815948"
+   },
+   "6131124164729815948": {
+      "message": "Patched source on GitHub"
    }
 }
