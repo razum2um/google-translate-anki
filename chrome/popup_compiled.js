@@ -4832,7 +4832,6 @@
       for (var i = 0; i < targets.length; i++) {
         var target = targets[i];
         jc(target, 'click', function(e) {
-          console.log('e!!', e);
           var from = e.target.getAttribute('data-source');
           var to = e.target.innerText;
           chrome.storage.local.get(['ankiDeckNameSel', 'ankiModelNameSel'], ({ankiDeckNameSel, ankiModelNameSel, ankiConnectUrl}) => {
