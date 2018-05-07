@@ -9,14 +9,14 @@
   <body>
     <div id="content">
        <h1>
-         <div id="options-title-heading"></div>
+         <div id="anki-options-title-heading"></div>
       </h1>
-
-      <div class="group">      
-        <input type="text" id='ankiConnectUrl'>
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label id='connect-url-label'></label>
+      
+      <div class="option_row">
+        <div id="connect-url-label" class="option_name"></div>
+        <div class="option_picker">
+          <input type="text" id='ankiConnectUrl' class='anki-text-input' />
+        </div>
       </div>
 
       <div class="option_row">
@@ -37,6 +37,10 @@
         <div id="saveAnkiBtn" class="jfk-button-action jfk-button jfk-button-disabled"></div>
         <span id="saveAnkiStatus" style="display:none"></span>
       </div>
+
+      <h1>
+         <div id="options-title-heading"></div>
+      </h1>
 
       <div class="option_row">
         <div id="lang-option" class="option_name"></div>
@@ -61,7 +65,7 @@
     </div> <!-- end of content div -->
 
     <div class="footer"><a id="footer-homepage" href="http://translate.google.com/"></a></div>
-    <div class="footer">&copy;2016 Google - <a id="footer-privacy" href="http://www.google.com/privacy.html"></a>, 2018 razum2um - <a id="footer-privacy" href="https://razum2um.me"></a></div>
+    <div class="footer">&copy;2016 Google - <a id="footer-privacy" href="http://www.google.com/privacy.html"></a>, 2018 razum2um</div>
 
   </body>
 </html>

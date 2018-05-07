@@ -3655,6 +3655,7 @@
         L(K(document, "connect-url-label"), x("MSG_CONNECT_URL_LABEL"));
         L(K(document, "model-name-option"), x("MSG_MODEL_NAME_OPTION"));
         L(K(document, "deck-name-option"), x("MSG_DECK_NAME_OPTION"));
+        L(K(document, "anki-options-title-heading"), x("MSG_ANKI_OPTIONS_TITLE"));
         L(K(document, "saveAnkiBtn"), x("MSG_SAVE_ANKI_OPTIONS"));
     };
     document.addEventListener("DOMContentLoaded", function() {
