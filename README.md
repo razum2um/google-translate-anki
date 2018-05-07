@@ -19,6 +19,8 @@ Just click on target language translation word.
 The source will be saved as "Front", the translation as "Back" card's fields.
 After that, the target word becomes green (or red in case of duplication or another error).
 
+![bubble-screenshot](https://raw.github.com/razum2um/google-translate-anki/master/bubble.png)
+
 ## Why not AnkiWeb?
 
-Don't ask for adding cards right into AnkiWeb, it's [authors explicitly don't want it](https://anki.tenderapp.com/discussions/ankiweb/1886-issue-with-saving-cards-via-rest-api)
+Don't ask for adding cards right into AnkiWeb, [authors explicitly don't want it](https://anki.tenderapp.com/discussions/ankiweb/1886-issue-with-saving-cards-via-rest-api)
