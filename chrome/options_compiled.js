@@ -5,7 +5,7 @@
         var selectEl = document.getElementById(selectId);
         return new Promise((resolve, reject) => {
             chrome.storage.local.get(selectId, (stored) => {
-                var storedVal = stored[selectId];
+                var storedVal = stored[selectId] || 'Basic';
                 fetch(url, { method: "POST", body: JSON.stringify({"action": action}) }).then(r => r.json()).then(data => {
                     for (var i = 0; i < data.length; i++) {
                     var name = data[i];
