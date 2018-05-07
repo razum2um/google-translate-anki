@@ -3465,7 +3465,7 @@
         }
         b += '</select></div><div class="gtx-source-audio"><div class="jfk-button-img"></div></div><div class="gtx-body">' + 
                   He(a.query) + '</div><br><div class="gtx-language">' + 
-                  He(a.Fb) + '</div><div class="gtx-target-audio"><div class="jfk-button-img"></div></div><div class="gtx-body">' +
+                  He(a.Fb) + '</div><div class="gtx-target-audio"><div class="jfk-button-img"></div></div><div class="gtx-body gtx-target" data-source="' + He(a.query) + '">' +
                   He(a.qb) + "</div>";
         if (a.ab) {
           b += '<table style="width: 95%">';
@@ -4827,6 +4827,31 @@
       });
       d = Pc("gtx-lang-selector", c);
       jc(d, "change", w(this.b, this, a, b, c), !1, this);
+
+      var targets = c.getElementsByClassName("gtx-target");
+      for (var i = 0; i < targets.length; i++) {
+        var target = targets[i];
+        jc(target, 'click', function(e) {
+          console.log('e!!', e);
+          var from = e.target.getAttribute('data-source');
+          var to = e.target.innerText;
+          chrome.storage.local.get(['ankiDeckNameSel', 'ankiModelNameSel'], ({ankiDeckNameSel, ankiModelNameSel, ankiConnectUrl}) => {
+            url = ankiConnectUrl || 'http://localhost:8765';
+            model = ankiModelNameSel || 'Basic';
+            deck = ankiDeckNameSel || 'Default';
+            var body = {
+              "action": "addNote",
+              "version": 5,
+              "params": {"note": {"fields": {"Front": from, "Back": to},
+                "modelName": model,
+                "deckName": deck}}};
+            fetch(url, { method: "POST", body: JSON.stringify(body) }).then(r => r.json()).then(data => {
+              e.target.style.color = data.error ? 'red' : 'green';
+            })
+          });
+        }, !1, this);
+      }
+
       b = new Hf;
       d = Pc("gtx-source-audio", c);
       be(b, d);
