@@ -997,7 +997,7 @@
     })
   });
   chrome.contextMenus.create({
-    id: "translate",
+    id: "translate-and-anki",
     title: function(a) {
       a = chrome.i18n.getMessage(a);
       return chrome.i18n.getMessage(a)
