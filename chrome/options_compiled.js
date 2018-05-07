@@ -1,27 +1,30 @@
 /* Copyright 2014 Google */
 (function() {
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var fetchOptions = function(url, action, selectId) {
+        var selectEl = document.getElementById(selectId);
+        return fetch(url, { method: "POST", body: JSON.stringify({"action": action}) }).then(r => r.json()).then(data => {
+            for (var i = 0; i < data.length; i++) {
+            var name = data[i];
+            e = document.createElement("option");
+            e.value = name;
+            e.text = name;
+            selectEl.appendChild(e);
+          }
+        });
+    }
 	document.addEventListener("DOMContentLoaded", function() {
-	    var modelNameSel = document.getElementById('modelNameSel');
-	    fetch("http://localhost:8765", { method: "POST", body: JSON.stringify({"action": "modelNames"}) }).then(r => r.json()).then(data => {
-	      for (var i = 0; i < data.length; i++) {
-	      	var name = data[i];
-	        e = document.createElement("option");
-	        e.value = name;
-	        e.text = name;
-	        modelNameSel.appendChild(e);
-	      }
-	    });
-
-	    var deckNameSel = document.getElementById('deckNameSel');
-	    fetch("http://localhost:8765", { method: "POST", body: JSON.stringify({"action": "deckNames"}) }).then(r => r.json()).then(data => {
-	      for (var i = 0; i < data.length; i++) {
-	      	var name = data[i];
-	        e = document.createElement("option");
-	        e.value = name;
-	        e.text = name;
-	        deckNameSel.appendChild(e);
-	      }
-	    });
+        var urlEl = document.getElementById('ankiConnectUrl');
+    
+        chrome.storage.local.get('ankiConnectUrl', ({ankiConnectUrl}) => {
+            var url = ankiConnectUrl || 'http://localhost:8765';
+            urlEl.classList.add('focused');
+            urlEl.value = url;
+            Promise.all([
+                fetchOptions(url, 'deckNames', 'deckNameSel'),
+                fetchOptions(url, 'modelNames', 'modelNameSel')
+            ]).catch(error => alert(`Cannot fetch options via AnkiConnect: ${error}`))
+        });
 	  });
 
     var g, k = this,
