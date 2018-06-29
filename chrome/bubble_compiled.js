@@ -5599,7 +5599,8 @@
               "version": 5,
               "params": {"note": {"fields": {"Front": from, "Back": to},
                 "modelName": model,
-                "deckName": deck}}};
+                "deckName": deck,
+                "tags": []}}};
             fetch(url, { method: "POST", body: JSON.stringify(body) }).then(r => r.json()).then(data => {
               e.target.style.color = data.error ? 'red' : 'green';
             })
