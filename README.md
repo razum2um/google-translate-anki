@@ -9,7 +9,11 @@ Now it allows adding the found word to [Anki](https://apps.ankiweb.net/) *deskto
 
 1) You must install [AnkiConnect](https://ankiweb.net/shared/info/2055492159) plugin to enable HTTP protocol.
 2) The desktop app (afaik) cannot be daemonized, so it should be running while adding (extension doesn't cache anything).
-3) Setup the URL (default is `http://localhost:8765`), deck and model
+3) Install unpacked extension
+
+![install-unpacked-img](https://developer.chrome.com/static/images/get_started/load_extension.png)
+
+4) Setup the URL (default is `http://localhost:8765`), deck and model
 
 ![options-screenshot](https://raw.github.com/razum2um/google-translate-anki/master/options.png)
 
@@ -20,6 +24,8 @@ The source will be saved as "Front", the translation as "Back" card's fields.
 After that, the target word becomes green (or red in case of duplication or another error).
 
 ![bubble-screenshot](https://raw.github.com/razum2um/google-translate-anki/master/bubble.png)
+
+Note, that adding the card takes ~3sec on my MBP, be patient :)
 
 ## Why not AnkiWeb?
 
