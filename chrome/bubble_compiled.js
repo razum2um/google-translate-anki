@@ -6157,7 +6157,7 @@
         a.j = document.createElement("div");
         a.j.id = "gtx-host";
         a.j.setAttribute("style", "min-width: 200px; max-width: 400px;");
-        a.j.createShadowRoot ? a.D = a.j.createShadowRoot() : a.D = a.j.webkitCreateShadowRoot();
+        a.D = a.j.attachShadow({mode: 'closed'});
         mk(chrome.runtime.getURL("popup_css_compiled.css"), z(a.W, a, b));
         window.a.Hb(!0)
       }
